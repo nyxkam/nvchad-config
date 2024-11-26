@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-    theme = "onenord",
-    theme_toggle = { "onenord", "one_light" },
+    theme = "onedark",
+    theme_toggle = { "onedark", "one_light" },
     transparency = false,
     integrations = { "rainbowdelimiters" },
     hl_override = {
