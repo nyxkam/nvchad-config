@@ -11,7 +11,7 @@ local M = function(style)
 
     -- Devuelve el formato basado en el estilo solicitado
     if style == "blocks" then
-        local name = "%#StalineVenvIcon#" .. " VENV " .. "%#StalineVenvName#" .. " " .. venv_name
+        local name = "%#StalineVenvIcon#" .. " ENV " .. "%#StalineVenvName#" .. " " .. venv_name
         return name .. "%#StalineEmptySpace#" .. " "
     elseif style == "minimal" then
         local name = "%#StalineSep#| %#StalineVenvNameMinimal#" .. venv_name
