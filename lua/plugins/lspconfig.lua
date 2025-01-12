@@ -10,7 +10,7 @@ return {
 
     -- EXAMPLE
     local servers = {
-      'bashls',
+      "bashls",
       "jdtls",
       "html",
       "pyright",
@@ -22,7 +22,7 @@ return {
       "jsonls",
       "lemminx",
       "cmake",
-      "tailwindcss",
+      "marksman",
     }
     local nvlsp = require "nvchad.configs.lspconfig"
 
@@ -34,6 +34,15 @@ return {
         capabilities = nvlsp.capabilities,
       }
     end
+
+    lspconfig.intelephense.setup {
+      on_attach = nvlsp.on_attach,
+      capabilities = nvlsp.capabilities,
+      on_init = nvlsp.on_init,
+      cmd = { "intelephense", "--stdio" },
+      root_dir = lspconfig.util.root_pattern("composer.json", ".git", "index.php", "public"),
+      filetypes = { "php" },
+    }
 
     -- configuring single server, example: typescript
     -- lspconfig.ts_ls.setup {
