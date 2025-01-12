@@ -4,115 +4,181 @@
 
 ---@type ChadrcConfig
 local M = {}
+local highlights = require "highlights"
 
 M.base46 = {
-    theme = "onedark",
-    theme_toggle = { "onedark", "one_light" },
-    transparency = false,
-    integrations = { "rainbowdelimiters" },
-    hl_override = {
-        Comment = { italic = true },
-        ["@comment"] = { italic = true },
-    },
-    hl_add = {
-        ---NOTE: BUFERLINE
-        BufflineBufOnActive = { fg = "white", bg = "black" },
-        BufflineBufOnInactive = { fg = "light_grey", bg = "lightbg" },
-        BufflineBufOnModified = { fg = "blue", bg = "black" },
-        BuffLineBufOffModified = { fg = "blue", bg = "lightbg" },
-        BufflineBufOnClose = { fg = "red", bg = "black" },
-        BuffLineBufOffClose = { fg = "red", bg = "lightbg" },
-
-        BuffLineTree = { bg = "black", fg = "white" },
-        BuffLineEmpty = { bg = "black", fg = "white" },
-        BuffLineEmptyColor = { bg = "lightbg", fg = "white" },
-        BuffLineToggleThemeButton = { bg = "black", fg = "sun" },
-        BuffLineCloseButton = { bg = "red", fg = "black" },
-        BuffLineRun = { bg = "black", fg = "pink" },
-        BuffLineSplit = { bg = "black", fg = "teal" },
-        BufflineTrans = { bg = "black", fg = "white" },
-
-        ---NOTE: STATUSLINE
-        StalineVenvIcon = { bg = "sun", fg = "black" },
-        StalineVenvName = { bg = "one_bg", fg = "sun" },
-        StalineFolderIcon = { bg = "red", fg = "black" },
-        StalineFolderSep = { bg = "black", fg = "red" },
-        StalineFolderText = { bg = "one_bg", fg = "red" },
-        StalineFolderTextMinimal = { bg = "black", fg = "white" },
-
-        StalineFilename = { bg = "black", fg = "white" },
-        StalineFilenameMinimal = { bg = "black", fg = "white" },
-        StalineFilenameFancy = { bg = "lightbg", fg = "white" },
-        StalineFilenameSep = { fg = "black", bg = "black" },
-        StalineLogo = { bg = "black", fg = "blue" },
-
-        StalineProgress = { bg = "black", fg = "green" },
-        StalineProgressMinimal = { bg = "lightbg", fg = "white" },
-        StalineModeMinimal = { bg = "lightbg", fg = "white" },
-        StalineProgressSep = { bg = "grey", fg = "green" },
-        StalineProgressIcon = { bg = "green", fg = "grey" },
-
-        StalineBranch = { bg = "black", fg = "white" },
-        StalineModeSepTwo = { bg = "lightbg", fg = "grey" },
-        StalineNormalMode = { bg = "nord_blue", fg = "black" },
-        StalineVisualMode = { bg = "yellow", fg = "black" },
-        StalineCommandMode = { bg = "orange", fg = "black" },
-        StalineInsertMode = { bg = "green", fg = "black" },
-        StalineTerminalMode = { bg = "purple", fg = "black" },
-        StalineNTerminalMode = { bg = "purple", fg = "black" },
-        StalineConfirmMode = { bg = "cyan", fg = "black" },
-
-        StalineNormalModeSep = { fg = "nord_blue", bg = "grey" },
-        StalineVisualModeSep = { fg = "yellow", bg = "grey" },
-        StalineCommandModeSep = { fg = "orange", bg = "grey" },
-        StalineInsertModeSep = { fg = "green", bg = "grey" },
-        StalineTerminalModeSep = { fg = "purple", bg = "grey" },
-        StalineNTerminalModeSep = { fg = "grey_fg", bg = "grey" },
-        StalineConfirmModeSep = { fg = "cyan", bg = "grey" },
-
-        StalineEmptySpace = { bg = "black", fg = "grey_fg2" },
-        StalineSep = { bg = "black", fg = "lightbg" },
-        StalineNix = { bg = "black", fg = "blue" },
-
-        StalineLspError = { bg = "black", fg = "red" },
-        StalineLspInfo = { bg = "black", fg = "blue" },
-        StalineLspHints = { bg = "black", fg = "cyan" },
-        StalineLspWarning = { bg = "black", fg = "yellow" },
-
-        StalineLspErrorIcon = { bg = "black", fg = "red" },
-        StalineLspInfoIcon = { bg = "black", fg = "blue" },
-        StalineLspHintsIcon = { bg = "black", fg = "cyan" },
-        StalineLspWarningIcon = { bg = "black", fg = "yellow" },
-
-        StalineLspNameNormal = { bg = "one_bg", fg = "purple" },
-        StalineLspName = { bg = "one_bg", fg = "purple" },
-        StalineLspNameMinimal = { bg = "black", fg = "white" },
-        StalineLspIcon = { bg = "purple", fg = "black" },
-
-        StalineDiffAdd = { bg = "black", fg = "green" },
-        StalineDiffAddFancy = { bg = "black", fg = "green" },
-        StalineDiffAddMinimal = { bg = "black", fg = "lightbg" },
-        StalineDiffChange = { bg = "black", fg = "yellow" },
-        StalineDiffChangeFancy = { bg = "black", fg = "yellow" },
-        StalineDiffChangeMinimal = { bg = "black", fg = "yellow" },
-        StalineDiffRemoveFancy = { bg = "black", fg = "red" },
-        StalineDiffRemoveMinimal = { bg = "black", fg = "lightbg" },
-        StalineDiffRemove = { bg = "black", fg = "red" },
-
-        StalineDefaultFile = { bg = "black", fg = "white" },
-    },
+  theme = "onenord",
+  theme_toggle = { "onenord", "one_light" },
+  transparency = false,
+  integrations = { "rainbowdelimiters" },
+  hl_override = highlights.override,
+  hl_add = highlights.add,
 }
 
 M.ui = {
-    cmp = {
-        style = "atom_colored",
-        format_colors = { tailwind = true }
+  cmp = {
+    style = "atom_colored",
+    icons_left = true,
+    lspkind_text = true,
+    format_colors = { tailwind = true },
+  },
+
+  telescope = { style = "borderless" },
+
+  statusline = {
+    theme = "default",
+    separator_style = "default",
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+    modules = {
+      lsp = function()
+        local stbufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+        local config = require("nvconfig").ui.statusline
+        local sep_style = config.separator_style
+        local utils = require "nvchad.stl.utils"
+
+        local sep_icons = utils.separators
+        local separators = (type(sep_style) == "table" and sep_style) or sep_icons[sep_style]
+
+        local sep_l = separators["left"]
+
+        if rawget(vim, "lsp") then
+          for _, client in ipairs(vim.lsp.get_clients()) do
+            if client.attached_buffers[stbufnr] then
+              local icon = "%#St_lsp_icon#" .. "  "
+              local name = client.name
+              return ("%#St_lsp_sep#" .. sep_l .. icon .. "%#St_lsp_text#" .. " " .. name .. " " .. "%#St_file_sep#")
+            end
+          end
+        end
+        return ""
+      end,
+
+      cursor = function()
+        local config = require("nvconfig").ui.statusline
+        local sep_style = config.separator_style
+        local utils = require "nvchad.stl.utils"
+
+        local sep_icons = utils.separators
+        local separators = (type(sep_style) == "table" and sep_style) or sep_icons[sep_style]
+
+        local sep_l = separators["left"]
+        return "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon# %#St_pos_text# %p%% "
+      end,
+
+      git = function()
+        local stbufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+        if not vim.b[stbufnr].gitsigns_head or not vim.b[stbufnr].gitsigns_status_dict then
+          return ""
+        end
+
+        local config = require("nvconfig").ui.statusline
+        local theme = config.theme
+        local git_status = vim.b[stbufnr].gitsigns_status_dict
+        local added = (git_status.added and git_status.added ~= 0) and ("  " .. git_status.added) or ""
+        local changed = (git_status.changed and git_status.changed ~= 0) and ("  " .. git_status.changed) or ""
+        local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed) or ""
+        local branch_name = "  " .. git_status.head
+
+        if theme == "default" then
+          return " "
+            .. "%#StGitIcons#"
+            .. branch_name
+            .. "%#StGitSignsAdd#"
+            .. added
+            .. "%#StGitSignsChange#"
+            .. changed
+            .. "%#StGitSignsDelete#"
+            .. removed
+        elseif theme == "minimal" or "vscode" or "vscode_colored" then
+          return " "
+            .. "%#ST_GitIcon#"
+            .. branch_name
+            .. "%#ST_GitSignsAdd#"
+            .. added
+            .. "%#ST_GitSignsChange#"
+            .. changed
+            .. "%#ST_GitSignsDelete#"
+            .. removed
+        else
+          return ""
+        end
+      end,
     },
-    telescope = { style = "borderless" }
+  },
+
+  tabufline = {
+    enable = true,
+    lazyload = true,
+    order = { "treeOffset", "buffers", "tabs", "run", "split", "transparency", "theme_toggle", "close_all" },
+    modules = {
+      split = function()
+        local split = "%#BuffLineSplit# %@Split@" .. "  "
+        vim.cmd "function! Split(a,b,c,d) \n vsplit \n endfunction"
+        return split
+      end,
+
+      run = function()
+        local run = "%#BuffLineRun# %@Run@" .. "  "
+        if vim.bo.filetype == "html" then
+          run = "%#BuffLineRun# %@Run@" .. "󰀂  "
+        end
+        vim.cmd "function! Run(a,b,c,d) \n lua require('core.coderunner').build_run() \n endfunction"
+        return run
+      end,
+
+      transparency = function()
+        local transparency = "%#BufflineTrans# %@ToggleTrans@" .. "󱡓  "
+        vim.cmd "function! ToggleTrans(a,b,c,d) \n lua require('base46').toggle_transparency() \n endfunction"
+        return transparency
+      end,
+
+      theme_toggle = function()
+        local themebutton = "%#BuffLineToggleTheme# %@ToggleTheme@" .. "󱥚  "
+        vim.cmd "function! ToggleTheme(a,b,c,d) \n lua require('nvchad.themes').open() \n endfunction"
+        return themebutton
+      end,
+
+      close_all = function()
+        local closebutton = "%#BufflineCloseButton# %@CloseAll@" .. "󰅗 "
+        vim.cmd "function! CloseAll(a,b,c,d) \n q \n endfunction"
+        return closebutton
+      end,
+    },
+    bufwidth = 21,
+  },
 }
 
 M.nvdash = {
-    load_on_startup = true,
+  load_on_startup = true,
+}
+
+M.term = {
+  winopts = { number = false },
+  sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
+  float = {
+    relative = "editor",
+    row = 0.3,
+    col = 0.25,
+    width = 1,
+    height = 0.9,
+    border = "rounded",
+  },
+}
+
+M.lsp = { signature = true }
+
+M.cheatsheet = {
+  theme = "grid", --simple/grid
+  exclude_groups = { "terminal (t)", "autopairs", "Nvim", "Opens" },
+}
+
+M.mason = { pkgs = {}, skip = {} }
+
+M.colorify = {
+  enabled = true,
+  mode = "virtual", -- fg, bg, virtual
+  virt_text = "󱓻 ",
+  highlight = { hex = true, lspvars = true },
 }
 
 return M
