@@ -67,9 +67,10 @@ return {
         { name = "nvim_lua" },
         { name = "path" },
         { name = "supermaven" },
+        { name = "codeium" },
       },
     }
 
     return vim.tbl_deep_extend("force", options, require "nvchad.cmp")
-  end
+  end,
 }
