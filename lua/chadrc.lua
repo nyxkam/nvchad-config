@@ -81,24 +81,24 @@ M.ui = {
 
         if theme == "default" then
           return " "
-            .. "%#StGitIcons#"
-            .. branch_name
-            .. "%#StGitSignsAdd#"
-            .. added
-            .. "%#StGitSignsChange#"
-            .. changed
-            .. "%#StGitSignsDelete#"
-            .. removed
+              .. "%#StGitIcons#"
+              .. branch_name
+              .. "%#StGitSignsAdd#"
+              .. added
+              .. "%#StGitSignsChange#"
+              .. changed
+              .. "%#StGitSignsDelete#"
+              .. removed
         elseif theme == "minimal" or "vscode" or "vscode_colored" then
           return " "
-            .. "%#ST_GitIcon#"
-            .. branch_name
-            .. "%#ST_GitSignsAdd#"
-            .. added
-            .. "%#ST_GitSignsChange#"
-            .. changed
-            .. "%#ST_GitSignsDelete#"
-            .. removed
+              .. "%#ST_GitIcon#"
+              .. branch_name
+              .. "%#ST_GitSignsAdd#"
+              .. added
+              .. "%#ST_GitSignsChange#"
+              .. changed
+              .. "%#ST_GitSignsDelete#"
+              .. removed
         else
           return ""
         end
@@ -172,7 +172,19 @@ M.cheatsheet = {
   exclude_groups = { "terminal (t)", "autopairs", "Nvim", "Opens" },
 }
 
-M.mason = { pkgs = {}, skip = {} }
+M.mason = {
+  pkgs = {
+    "lua_ls",
+    "ts_ls",
+    "html",
+    "cssls",
+    "emmet_ls",
+    "pyright",
+    "clangd",
+    "omnisharp"
+  },
+  skip = {}
+}
 
 M.colorify = {
   enabled = true,
