@@ -47,18 +47,30 @@ M.add = {
   --- STATUSLN ---
   ----------------
   StGitIcons = { bg = "statusline_bg", fg = "cyan" },
+  StGitName = { bg = "statusline_bg", fg = "cyan" },
   StGitSignsAdd = { bg = "statusline_bg", fg = "green" },
   StGitSignsChange = { bg = "statusline_bg", fg = "sun" },
   StGitSignsDelete = { bg = "statusline_bg", fg = "red" },
+
+  StGitSepMinimal = { fg = "cyan" },
+  StGitIconsMinimal = { bg = "cyan", fg = "statusline_bg" },
+  StGitNameMinimal = { bg = "statusline_bg", fg = "cyan" },
+  StGitSignsAddMinimal = { bg = "statusline_bg", fg = "green" },
+  StGitSignsChangeMinimal = { bg = "statusline_bg", fg = "sun" },
+  StGitSignsDeleteMinimal = { bg = "statusline_bg", fg = "red" },
 
   ST_GitIcon = { bg = "black", fg = "cyan" },
   ST_GitSignsAdd = { bg = "black", fg = "green" },
   ST_GitSignsChange = { bg = "black", fg = "sun" },
   ST_GitSignsDelete = { bg = "black", fg = "red" },
 
-  St_lsp_sep = { fg = "dark_purple" },
-  St_lsp_icon = { bg = "dark_purple", fg = "one_bg" },
-  St_lsp_text = { bg = "lightbg", fg = "dark_purple" },
+  St_lsp_sep_default = { fg = "sun" },
+  St_lsp_icon_default = { bg = "sun", fg = "one_bg" },
+  St_lsp_text_default = { bg = "lightbg", fg = "sun" },
+
+  St_lsp_sep_minimal = { fg = "green" },
+  St_lsp_icon_minimal = { bg = "green", fg = "one_bg" },
+  St_lsp_text_minimal = { bg = "lightbg", fg = "green" },
 }
 
 return M
