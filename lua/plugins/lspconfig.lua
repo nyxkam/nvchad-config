@@ -23,6 +23,7 @@ return {
       "lemminx",
       "cmake",
       "marksman",
+      "emmet_ls",
     }
     local nvlsp = require "nvchad.configs.lspconfig"
 
