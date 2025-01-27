@@ -2,16 +2,16 @@
 --NOTE: Dressing Plugin to improve the dafault vim.ui interfaces
 
 return {
-  'stevearc/dressing.nvim',
-  event = { 'BufReadPost', 'BufNewFile' },
-  dependencies = 'rcarriga/nvim-notify',
+  "stevearc/dressing.nvim",
+  event = { "BufReadPost", "BufNewFile" },
+  dependencies = "rcarriga/nvim-notify",
   config = function()
-    require("dressing").setup({
+    require("dressing").setup {
       input = {
         enabled = true,
         default_prompt = "➤ ",
         win_options = {
-          winblend = 10,
+          winblend = 0,
         },
       },
       select = {
@@ -23,6 +23,6 @@ return {
           },
         },
       },
-    })
+    }
   end,
 }
