@@ -11,21 +11,51 @@ M.override = {
     italic = true,
   },
   ["@comment"] = { italic = true },
+  ["@variable.builtin"] = { bold = true },
+  ["@variable.parameter"] = { italic = true },
+  ["@constant"] = { bold = true },
+  ["@constant.builtin"] = { bold = true },
+  ["@constant.macro"] = { bold = true },
+
+  ["@parameter"] = { italic = true },
+  ["@keyword"] = { italic = true, bold = true },
+  ["@keyword.function"] = { italic = true, bold = true },
+  ["@keyword.return"] = { italic = true, bold = true },
+  ["keyword.operator"] = { bold = true },
+  ["@keyword.directive.define"] = { bold = true },
+
+  ["@function"] = { bold = true },
+  ["@function.macro"] = { bold = true },
+  ["@function.call"] = { bold = true },
+  ["@function.method"] = { bold = true },
+  ["@function.method.call"] = { bold = true },
+  ["@constructor"] = { bold = true },
+
+  ["@tag.attribute"] = { italic = true },
+  ["@text.emphasis"] = { italic = true },
   FloatTitle = { fg = "black", bg = "nord_blue" },
   NormalFloat = { bg = "darker_black" },
-  FloatBorder = { fg = "nord_blue" },
+  FloatBorder = { fg = "darker_black", bg = "darker_black" },
   CursorLineNr = { fg = "blue", bold = true },
-  St_cwd_text = { fg = "red", bg = "lightbg" },
+  CmpPmenu = { bg = "darker_black" },
+  CmpDoc = { bg = "darker_black" },
+  St_cwd_sep = { fg = "red", bg = "lightbg" },
+  St_cwd_bg = { bg = "red" },
+  St_cwd_txt = { fg = "red" },
+  St_Pos_sep = { fg = "green" },
+  St_Pos_bg = { bg = "green" },
+  St_Pos_txt = { fg = "green" },
 }
 
 ---@type HLTable
 M.add = {
+  ["@boolean"] = { fg = "purple", bold = true },
   -------------
   --- NOICE ---
   -------------
   NoiceMini = { bg = "darker_black", fg = "white" },
   NoiceCmdlinePopup = { bg = "darker_black", fg = "white" },
-  NoiceCmdlinePopupBorder = { bg = "NONE", fg = "darker_black" },
+  NoiceCmdlinePopupBorder = { bg = "darker_black", fg = "darker_black" },
   NoiceCmdlinePopupBorderSearch = { link = "NoiceCmdlinePopupBorder" },
   NoiceCmdlinePopupTitle = { bg = "darker_black", fg = "red", bold = true },
   NoiceCmdlinePopupTitleCmdline = { bg = "nord_blue", fg = "darker_black", bold = true },
@@ -52,9 +82,9 @@ M.add = {
   StGitSignsChange = { bg = "statusline_bg", fg = "sun" },
   StGitSignsDelete = { bg = "statusline_bg", fg = "red" },
 
-  StGitSepMinimal = { fg = "cyan" },
-  StGitIconsMinimal = { bg = "cyan", fg = "statusline_bg" },
-  StGitNameMinimal = { bg = "statusline_bg", fg = "cyan" },
+  StGitSepMinimal = { fg = "sun" },
+  StGitIconsMinimal = { bg = "sun", fg = "statusline_bg" },
+  StGitNameMinimal = { bg = "statusline_bg", fg = "sun" },
   StGitSignsAddMinimal = { bg = "statusline_bg", fg = "green" },
   StGitSignsChangeMinimal = { bg = "statusline_bg", fg = "sun" },
   StGitSignsDeleteMinimal = { bg = "statusline_bg", fg = "red" },
@@ -68,9 +98,9 @@ M.add = {
   St_lsp_icon_default = { bg = "sun", fg = "one_bg" },
   St_lsp_text_default = { bg = "lightbg", fg = "sun" },
 
-  St_lsp_sep_minimal = { fg = "green" },
-  St_lsp_icon_minimal = { bg = "green", fg = "one_bg" },
-  St_lsp_text_minimal = { bg = "lightbg", fg = "green" },
+  St_lsp_sep_minimal = { fg = "purple" },
+  St_lsp_icon_minimal = { bg = "purple", fg = "one_bg" },
+  St_lsp_text_minimal = { bg = "lightbg", fg = "purple" },
 }
 
 return M
