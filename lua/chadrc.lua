@@ -9,7 +9,7 @@ local highlights = require "highlights"
 M.base46 = {
   theme = "gruvchad",
   theme_toggle = { "gruvchad", "one_light" },
-  transparency = true,
+  transparency = false,
   integrations = { "rainbowdelimiters" },
   hl_override = highlights.override,
   hl_add = highlights.add,
@@ -17,7 +17,7 @@ M.base46 = {
 
 M.ui = {
   cmp = {
-    style = "default",
+    style = "atom_colored",
     icons_left = false,
     lspkind_text = true,
     format_colors = { tailwind = true },
