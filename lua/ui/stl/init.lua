@@ -17,7 +17,7 @@ M.modules = {
       if rawget(vim, "lsp") then
         for _, client in ipairs(vim.lsp.get_clients()) do
           if client.attached_buffers[stbufnr] then
-            local icon = "%#St_lsp_icon_default#" .. " "
+            local icon = "%#St_lsp_icon_default#" .. " "
             local name = client.name
             return (
               "%#St_lsp_sep_default#"
@@ -50,7 +50,7 @@ M.modules = {
       if rawget(vim, "lsp") then
         for _, client in ipairs(vim.lsp.get_clients()) do
           if client.attached_buffers[stbufnr] then
-            local icon = "%#St_lsp_icon_minimal#" .. " "
+            local icon = "%#St_lsp_icon_minimal#" .. " "
             local name = client.name
             return ("%#St_lsp_sep_minimal#" .. sep_l .. icon .. "%#St_lsp_text_minimal#" .. " " .. name .. sep_r)
           end
@@ -74,7 +74,7 @@ M.modules = {
         for _, client in ipairs(vim.lsp.get_clients()) do
           if client.attached_buffers and client.attached_buffers[stbufnr] then
             local lsp_status = vim.o.columns > 100 and "%#St_Lsp#" .. "   LSP ~ " .. client.name .. " "
-              or "%#St_Lsp#" .. "   LSP "
+                or "%#St_Lsp#" .. "   LSP "
             return lsp_status
           end
         end
@@ -98,7 +98,7 @@ M.modules = {
     local added = (git_status.added and git_status.added ~= 0) and ("  " .. git_status.added) or ""
     local changed = (git_status.changed and git_status.changed ~= 0) and ("  " .. git_status.changed) or ""
     local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed) or ""
-    local icon = " "
+    local icon = "󰘬 "
     local branch_name = " " .. git_status.head
 
     if theme == "default" then
@@ -115,42 +115,42 @@ M.modules = {
       local sep_r = "%#St_sep_r#" .. separators["right"] .. " %#ST_EmptySpace#"
 
       return ""
-        .. "%#StGitSepMinimal#"
-        .. sep_l
-        .. "%#StGitIconsMinimal#"
-        .. icon
-        .. "%#StGitNameMinimal#"
-        .. branch_name
-        .. "%#StGitSignsAddMinimal#"
-        .. added
-        .. "%#StGitSignsChangeMinimal#"
-        .. changed
-        .. "%#StGitSignsDeleteMinimal#"
-        .. removed
-        .. sep_r
+          .. "%#StGitSepMinimal#"
+          .. sep_l
+          .. "%#StGitIconsMinimal#"
+          .. icon
+          .. "%#StGitNameMinimal#"
+          .. branch_name
+          .. "%#StGitSignsAddMinimal#"
+          .. added
+          .. "%#StGitSignsChangeMinimal#"
+          .. changed
+          .. "%#StGitSignsDeleteMinimal#"
+          .. removed
+          .. sep_r
     elseif theme == "vscode_colored" then
       return ""
-        .. "%#St_gitIcons#"
-        .. icon
-        .. branch_name
-        .. "%#GitSignsAdd#"
-        .. added
-        .. "%#GitSignsChange#"
-        .. changed
-        .. "%#GitSignsDelete#"
-        .. removed
+          .. "%#St_gitIcons#"
+          .. icon
+          .. branch_name
+          .. "%#GitSignsAdd#"
+          .. added
+          .. "%#GitSignsChange#"
+          .. changed
+          .. "%#GitSignsDelete#"
+          .. removed
     elseif theme == "vscode" then
       return " "
-        .. "%#StGitBranchVSCode#"
-        .. icon
-        .. branch_name
-        .. "%#StGitAddedVSCode#"
-        .. added
-        .. "%#StGitChangedVSCode#"
-        .. changed
-        .. "%#StGitRemovedVSCode#"
-        .. removed
-        .. "  "
+          .. "%#StGitBranchVSCode#"
+          .. icon
+          .. branch_name
+          .. "%#StGitAddedVSCode#"
+          .. added
+          .. "%#StGitChangedVSCode#"
+          .. changed
+          .. "%#StGitRemovedVSCode#"
+          .. removed
+          .. "  "
     else
       return ""
     end
