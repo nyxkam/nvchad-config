@@ -17,7 +17,7 @@ M.modules = {
       if rawget(vim, "lsp") then
         for _, client in ipairs(vim.lsp.get_clients()) do
           if client.attached_buffers[stbufnr] then
-            local icon = "%#St_lsp_icon_default#" .. " "
+            local icon = "%#St_lsp_icon_default#" .. "󰊠 "
             local name = client.name
             return (
               "%#St_lsp_sep_default#"
@@ -50,7 +50,7 @@ M.modules = {
       if rawget(vim, "lsp") then
         for _, client in ipairs(vim.lsp.get_clients()) do
           if client.attached_buffers[stbufnr] then
-            local icon = "%#St_lsp_icon_minimal#" .. " "
+            local icon = "%#St_lsp_icon_minimal#" .. "󰊠 "
             local name = client.name
             return ("%#St_lsp_sep_minimal#" .. sep_l .. icon .. "%#St_lsp_text_minimal#" .. " " .. name .. sep_r)
           end
