@@ -26,7 +26,7 @@ M.ui = {
   telescope = { style = "borderless" },
 
   statusline = {
-    theme = "minimal",
+    theme = "default",
     separator_style = "default",
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
     modules = require("ui.stl").modules,
